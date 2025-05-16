@@ -11,7 +11,7 @@ def mostrar_mapa(mapa):
     letras = ["A", "B", "C", "D", "E"]
     for i in range(5):
         fila = letras[i] + " " + " ".join(mapa[i])
-        print(fila)
+        print(fila) # Imprimo la fla.
 
 # Convertir coordenadas como "A3" en posiciones [0][2]
 def convertir_coordenada(coordenada):
