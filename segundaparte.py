@@ -1,5 +1,11 @@
 
+import random # llama un numero random
 
+
+def crear_mapa():   # defino la funcion crear_mapa 
+  return [["~" for _ in range(5)] for _ in range(5)]  # uso return para 
+  
+  
 
 print("ingresa una coordenada a la que quieras disparar: " )
 
