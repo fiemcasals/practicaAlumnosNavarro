@@ -78,4 +78,3 @@ def posiciones_aleatorias():
 # posiciones_aleatorias()
 
 # función para simular el jugador contrario...
-def jugador_contrario:

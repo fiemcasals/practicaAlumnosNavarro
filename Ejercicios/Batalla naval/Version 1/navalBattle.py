@@ -1,8 +1,8 @@
-from funciones import posiciones_aleatorias
+import funciones
 
 # Genera posiciones aleatorias para los barcos en el mapa...
 print("\n_____________________________ Generando posiciones aleatorias para los barcos en el mapa.... _____________________________")
-posiciones_aleatorias()
+funciones.posiciones_aleatorias()
 
 print("\n_____________________________ Pidiéndole datos al usuario.... _____________________________\n")
 

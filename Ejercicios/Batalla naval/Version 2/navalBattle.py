@@ -1,13 +1,13 @@
-from funciones import posiciones_aleatorias, mostrar_tablero, letra_a_col, mar_usuario
+import funciones
 
 # Mapa interno (oculto) con los barcos
-mar_barcos = posiciones_aleatorias()
+mar_barcos = funciones.posiciones_aleatorias()
 
 
 
 # Juego principal
 print("\n¡Bienvenido a la Batalla Naval!\n")
-mostrar_tablero()
+funciones.mostrar_tablero()
 
 intentos = 10
 aciertos = 0
@@ -19,22 +19,22 @@ while intentos > 0 and aciertos < total_barcos:
         print("\nEntrada inválida. Use formato letra+numero (ej: C4)\n")
         continue
 
-    col = letra_a_col(pos[0])
+    col = funciones.letra_a_col(pos[0])
     fila = int(pos[1]) - 1
 
-    if mar_usuario[fila + 1][col + 1] != "~":
+    if funciones.mar_usuario[fila + 1][col + 1] != "~":
         print("\nYa probaste esa posición.\n")
         continue
 
     if mar_barcos[fila][col] != "~":
         print("\n¡ACIERTO! 🚢\n")
-        mar_usuario[fila + 1][col + 1] = "X"
+        funciones.mar_usuario[fila + 1][col + 1] = "X"
         aciertos += 1
     else:
         print("\nAGUA 🌊\n")
-        mar_usuario[fila + 1][col + 1] = "O"
+        funciones.mar_usuario[fila + 1][col + 1] = "O"
 
-    mostrar_tablero()
+    funciones.mostrar_tablero()
     intentos -= 1
 
 # Resultado final
