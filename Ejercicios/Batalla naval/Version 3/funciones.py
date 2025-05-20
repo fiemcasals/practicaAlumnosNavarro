@@ -55,15 +55,23 @@ def disparar():
   posicion_usuario = input("  Ingrese una posición (Por ejemplo 'C4'):") # Le pido al usuario que ingrese un valor...
 
   clave = posicion_usuario[0]
-  valor = int(posicion_usuario[1])
 
-  if (clave == "A" or clave == "B" or clave == "C" or clave == "D" or clave == "E") and (valor > 0 and valor < 6):
-    mapa[clave][valor-1] = "X"
-    representar_mapa(mapa)
-  else:
+  if len(posicion_usuario) < 2 or len(posicion_usuario) > 2:
     print("\n")
     print("    Agrego algo incorrecto, vuelva a indicar entra A y E, y entre 1 y 5 (Por ejemplo 'C4').")
     print("\n")
     disparar()
+  else:
+
+    valor = int(posicion_usuario[1]) # FIJARME SI PUEDO USAR TRY PARA CUANDO DA ERROR POR AGREGAR STR!
+
+    if (clave == "A" or clave == "B" or clave == "C" or clave == "D" or clave == "E") and (valor > 0 and valor < 6):
+      mapa[clave][valor-1] = "X"
+      representar_mapa(mapa)
+    else:
+      print("\n")
+      print("    Agrego algo incorrecto, vuelva a indicar entra A y E, y entre 1 y 5 (Por ejemplo 'C4').")
+      print("\n")
+      disparar()
 
 disparar()    
