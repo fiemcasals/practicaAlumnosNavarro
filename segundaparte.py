@@ -59,10 +59,16 @@ while aciertos < 3:  # cantidad de aciertos, menor a 3.
 
         intentos += 1   # defino la variable sumar un intento tras fallar.
 
-        if (fila, columna) in barcos:    # 
-            print(" ¡Le diste a un barco!")
-            mapa[fila][columna] = "X"
-            aciertos += 1
-        else:
-            print(" Agua...")
-            mapa[fila][columna] = "O"
+        if (fila, columna) in barcos:    # llama a (fila y columna) en barcos.
+            print(" ¡Le diste a un barco!")    
+            mapa[fila][columna] = "X"   # se marca en el mapa con una x al barco que le diste.
+            aciertos += 1      # se suma un acierto al jugador.
+        else:         # si le das al agua.
+            print(" Agua...")   
+            mapa[fila][columna] = "O"   # si le das al agua se marca con un 0.
+
+        print("¡Ganaste! Hundiste los 3 barcos en", intentos, "intentos.")   # al ganar se muestran la cantidad de intentos que utilizaste. 
+        mostrar_mapa(mapa)    # muestra el mapa con los resultados del jugador. 
+
+
+        jugar()            
