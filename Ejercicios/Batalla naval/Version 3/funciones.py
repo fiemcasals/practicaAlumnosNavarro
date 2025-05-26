@@ -52,7 +52,7 @@ def disparar():
 
   global mapa # Utilizo el mapa global
 
-  posicion_usuario = input("  Ingrese una posición (Por ejemplo 'C4'):") # Le pido al usuario que ingrese un valor...
+  posicion_usuario = input("  Ingrese una posición (Por ejemplo 'C4'): ") # Le pido al usuario que ingrese un valor...
 
   clave = posicion_usuario[0]
 
@@ -63,7 +63,11 @@ def disparar():
     disparar()
   else:
 
-    valor = int(posicion_usuario[1]) # FIJARME SI PUEDO USAR TRY PARA CUANDO DA ERROR POR AGREGAR STR!
+    try:
+      valor = int(posicion_usuario[1]) # FIJARME SI PUEDO USAR TRY PARA CUANDO DA ERROR POR AGREGAR STR!
+    except ValueError:
+      print("Agregaste algo incorrecto, vuelve inténtalo!")
+          
 
     if (clave == "A" or clave == "B" or clave == "C" or clave == "D" or clave == "E") and (valor > 0 and valor < 6):
       mapa[clave][valor-1] = "X"
