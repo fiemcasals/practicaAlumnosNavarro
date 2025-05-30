@@ -5,14 +5,15 @@ import random # llama un numero random
 def crear_mapa():   # defino la funcion crear_mapa 
   return [["-" for _ in range(5)]  # uso return para retornar a la funcion crear_mapa
           for _ in range(5)]  
-  
+
+mapa = crear_mapa()   # el mapa es la función crear_mapa.
+           
 def mostrar_mapa(mapa):   #  llamo a la funcion mostrar mapa.
      print("1 2 3 4 5")   #  imprimo los numeros. 
      letras = ["A", "B", "C", "D", "E"]    #  variable de letras de la A a E.
      for i in range(5):   # llamo valores del 0 al 5.  
         fila = letras[i] + " " + " ".join(mapa[i])   # creo la variable de fila y con la i muestra el indice de mapa.
         print(fila) # Imprime la fila.
-
 
 def convertir_coordenada(coordenada):    # convierte las coordenadas en posiciones para los barcos.
     letras = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}    #  posibles coordenadas desde A0 hasta E4.
@@ -23,7 +24,6 @@ def convertir_coordenada(coordenada):    # convierte las coordenadas en posicion
         columna = -1
     return fila, columna                            # ante un error retornamos a la fila o columna.
 
-
 def colocar_barcos():       # colocamos los barcos de forma aleatoria.
     barcos = []                 # variable de barcos.
     while len(barcos) < 3:          # con len contamos la cantidad de barcos.
@@ -33,10 +33,11 @@ def colocar_barcos():       # colocamos los barcos de forma aleatoria.
             barcos.append((fila, columna))     # se agrega a barcos en la lista (fila,columnas).
     return barcos       # retornamos a barcos. 
 
+barcos = colocar_barcos()   # se muestra la ubicacion de sus barcos.
+
 # menu principal del juego 
 def jugar():     # defino la variable jugar.
-    mapa = crear_mapa()   # el mapa es la función crear_mapa.
-    barcos = colocar_barcos()   # se muestra la ubicacion de sus barcos. 
+    
     intentos = 0    # numero de intentos restantes.
     aciertos = 0    # cantidad de aciertos en barcos.
     print("¡Bienvenido a Batalla Naval!")   # bienvenida.
@@ -60,7 +61,7 @@ while aciertos < 3:  # cantidad de aciertos, menor a 3.
         intentos += 1   # defino la variable sumar un intento tras fallar.
 
         if (fila, columna) in barcos:    # llama a (fila y columna) en barcos.
-            print(" ¡Le diste a un barco!")    
+            print("Le diste a un barco")    
             mapa[fila][columna] = "X"   # se marca en el mapa con una x al barco que le diste.
             aciertos += 1      # se suma un acierto al jugador.
         else:         # si le das al agua.
