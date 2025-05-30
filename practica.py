@@ -21,17 +21,21 @@
 #Pida esos números (que pueden ser decimales) y calcule su suma.
 
 #Pista: Puedes utilizar la función input() para obtener datos del usuario y la función float() para convertir esos datos en números decimales.
-import random
+#import random
 
-numero = random.randint(1,10)
+#numero = random.randint(1,10)
 
-
-usuario = input("cuantos numeros vas a introducir(1/5) : ")
-
-print
+#usuario = input("cuantos numeros vas a introducir(1/5) : ")
 
 
-sumatoria = numero > usuario 
 
-print(sumatoria)
+#print(sumatoria)
 
+# practiquemos
+
+saludo = "hola"
+bienvenida = saludo
+print = (bienvenida)
+
+lista = ["hola", "genio" , "feo"]
+print =(lista)
