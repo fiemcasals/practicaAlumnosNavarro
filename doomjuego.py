@@ -31,4 +31,4 @@ print("ahora empiezas en el mapa marte")
 
 
 
-for  mapa_marte in (1,5) 
+# for  mapa_marte in (1,5) 
