@@ -46,3 +46,26 @@ matriz = [
 for fila in matriz:
     for elemento in fila:
         print(elemento)
+
+
+#n! = n × (n-1) × (n-2) × ... × 1
+
+
+
+def factorial_iterativo(n):
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+    return resultado
+
+# Ejemplo
+print(factorial_iterativo(5))  # Resultado: 120
+
+def factorial_recursivo(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial_recursivo(n - 1)
+
+# Ejemplo
+print(factorial_recursivo(5))  # Resultado: 120
