@@ -25,7 +25,6 @@
 
 #numero = random.randint(1,10)
 
-#usuario = input("cuantos numeros vas a introducir(1/5) : ")
 
 
 
@@ -33,9 +32,17 @@
 
 # practiquemos
 
-saludo = "hola"
-bienvenida = saludo
-print = (bienvenida)
+#saludo = "hola"
+#bienvenida = saludo
+#print  (bienvenida)
 
-lista = ["hola", "genio" , "feo"]
-print =(lista)
+# Creamos una matriz de 3x3 (3 filas, 3 columnas)
+matriz = [
+    [1, 2, 3], [4, 5, 6],[7, 8, 9]
+    
+]
+
+# Recorremos la matriz con dos for anidados
+for fila in matriz:
+    for elemento in fila:
+        print(elemento)
