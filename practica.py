@@ -37,29 +37,29 @@
 #print  (bienvenida)
 
 # Creamos una matriz de 3x3 (3 filas, 3 columnas)
-matriz = [
+"""matriz = [
     [1, 2, 3], [4, 5, 6],[7, 8, 9]
     
-]
+]"""
 
 # Recorremos la matriz con dos for anidados
-for fila in matriz:
+"""for fila in matriz:
     for elemento in fila:
         print(elemento)
-
+"""
 
 #n! = n × (n-1) × (n-2) × ... × 1
 
 
 
-def factorial_iterativo(n):
+"""def factorial_iterativo(n):
     resultado = 1
     for i in range(1, n + 1):
         resultado *= i
-    return resultado
+    return resultado"""
 
 # Ejemplo
-print(factorial_iterativo(5))  # Resultado: 120
+"""print(factorial_iterativo(3))  # Resultado: 120
 
 def factorial_recursivo(n):
     if n == 0 or n == 1:
@@ -68,4 +68,18 @@ def factorial_recursivo(n):
         return n * factorial_recursivo(n - 1)
 
 # Ejemplo
-print(factorial_recursivo(5))  # Resultado: 120
+print(factorial_recursivo(3))  # Resultado: 120
+"""
+
+"""class CalculadoraFactorial:
+    def __init__(self, numero):
+        self.numero = numero
+
+    def calcular(self):
+        resultado = 1
+        for i in range(1, self.numero + 1):
+            resultado *= i
+        return resultado"""
+
+for numero in range(5):
+    print(numero)
