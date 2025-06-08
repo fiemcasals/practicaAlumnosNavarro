@@ -65,20 +65,90 @@ class Buscaminas:
         self.tablero_visible[fila][columna] = "*"
         self.mostrar_tablero()
         print("\n💥 ¡BOOM! Pisaste una mina. Juego terminado.\n")
+        print("Tablero descubierto:\n")
+        self.mostrar_tablero_real()
+        print("\n")
       else:
         # Mostrar el valor en el tablero visible (un número)
         self.tablero_visible[fila][columna] = self.tablero_real[fila][columna]
-          
+
+    def pedir_posicion(self):
+
+      while True:
+        entrada = input("\nIngresa una coordenada (ej. B3): ").upper().strip()
+
+        # Verificamos que tenga al menos 2 caracteres
+        if len(entrada) < 2:
+            print("Entrada muy corta. Intenta de nuevo.")
+            continue
+
+        # Extraer letra (columna) y número (fila)
+        letra = entrada[0]
+        numero = entrada[1:]
+
+        # Validar columna (letra entre A y el límite)
+        if letra < "A" or letra >= chr(65 + self.columnas):
+            print("Columna inválida. Usa letras entre A y", chr(64 + self.columnas))
+            continue
+
+        # Validar fila (número entre 1 y filas)
+        if not numero.isdigit():
+            print("Fila inválida. Debe ser un número.")
+            continue
+
+        fila = int(numero) - 1
+        columna = ord(letra) - 65
+
+        if fila < 0 or fila >= self.filas:
+            print("Fila fuera de rango. Usa números entre 1 y", self.filas)
+            continue
+
+        # Validar si ya fue descubierta
+        if self.tablero_visible[fila][columna] != "#":
+            print("Esa casilla ya fue descubierta. Elige otra.")
+            continue
+
+        return fila, columna
+    
+# --- INICIO DEL JUEGO --- 
+print("\n_____________________ Bienvenido al juego BUSCA MINAS _____________________\n")
 buscaminas1 = Buscaminas()
 
-print("\nTablero visible:\n")
-buscaminas1.mostrar_tablero()
+# Calcular cuántas casillas seguras hay (todas menos las que tienen mina)
+casillas_por_descubrir = buscaminas1.filas * buscaminas1.columnas - 5
 
-print("\nTablero real con minas:\n")
-buscaminas1.mostrar_tablero_real()
+# Bucle principal del juego
+while True:
+    
+    print("Tablero para elegir posicion:\n")
+    buscaminas1.mostrar_tablero()  # Mostrar el tablero oculto
+    fila, columna = buscaminas1.pedir_posicion()  # Pedir una posición válida
 
-print("\nTablero visible descubierto:\n")
-buscaminas1.descubrir(2,3)
-buscaminas1.mostrar_tablero()
+    if buscaminas1.tablero_real[fila][columna] == "*":
+        # Si es una mina, descubrirla y terminar el juego
+        buscaminas1.descubrir(fila, columna)
+        break
+    else:
+        # Si no es mina, descubrir la casilla y restar del contador
+        buscaminas1.descubrir(fila, columna)
+        casillas_por_descubrir -= 1
+
+    if casillas_por_descubrir == 0:
+        # Si se descubrieron todas las casillas seguras, el jugador gana
+        buscaminas1.mostrar_tablero()
+        print("\n🎉 ¡Felicidades! Descubriste todas las casillas sin pisar ninguna mina.")
+        break
+
+
+
+#print("\nTablero visible:\n")
+#buscaminas1.mostrar_tablero()
+
+#print("\nTablero real con minas:\n")
+#buscaminas1.mostrar_tablero_real()
+
+#print("\nTablero visible descubierto:\n")
+#buscaminas1.descubrir(2,3)
+#buscaminas1.mostrar_tablero()
 
 # ()
