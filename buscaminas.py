@@ -27,11 +27,17 @@ print(minas) """
 
 # creando una clase de minas.
 
-class mapa:
-    def __init__( fila, columna):
-       
+class Buscaminas:
+    def __init__(self, fila, columna):
+        self.fila = 8
+        self.columna = 8
 
-   
+    def ladrar(self):
+        print(f"{self.nombre} dice: ¡Guau!")
+
+    def describir(self):
+        print(f"{self.nombre} tiene {self.edad} años.")
+
 
 # pt2 crear minas.
 
@@ -61,5 +67,5 @@ def calcular_numeros(self):
               minas_cerca += 1
       self.tablero[fila][columna] = str(minas_cerca) 
 
-def mostrar_tablero(self):
-  print(tablero)            
+# def mostrar_tablero(self):
+  #print(tablero)            
