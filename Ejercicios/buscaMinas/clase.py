@@ -2,7 +2,7 @@ import random
 
 class Buscaminas:
 
-    def __init__(self, filas=5, columnas=5): # Defino en el constructor los valores por defecto de las filas y columnas.
+    def __init__(self, filas=4, columnas=4): # Defino en el constructor los valores por defecto de las filas y columnas.
         self.filas = filas
         self.columnas = columnas
         self.tablero_real = [["0" for _ in range(self.columnas)] for _ in range(self.filas)] # Crear tablero real con "0"
@@ -111,8 +111,9 @@ class Buscaminas:
         return fila, columna
     
 # --- INICIO DEL JUEGO --- 
-print("\n_____________________ Bienvenido al juego BUSCA MINAS _____________________\n")
-buscaminas1 = Buscaminas()
+filas = 6
+columnas = 6
+buscaminas1 = Buscaminas(filas,columnas)
 
 # Calcular cuántas casillas seguras hay (todas menos las que tienen mina)
 casillas_por_descubrir = buscaminas1.filas * buscaminas1.columnas - 5
