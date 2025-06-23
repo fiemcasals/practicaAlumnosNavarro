@@ -29,3 +29,10 @@
 
 # _________________
 
+#all..
+
+#números = [1,2,3,4] 
+# todos son distintos a 0
+#print(all(números)) #nos devuelve true.
+
+# _________________
