@@ -44,40 +44,23 @@ def pedir_movimiento(tablero, jugador):
 
         return f, c # Devuelve la posición de la fila y de la columna.
 
-        # creo la siguiente función para verificar quien fue el ganador...
-        def verificar_ganador(tablero, jugador):
-              # Filas, columnas y diagonales
-               for i in range(3):
-                if all(tablero[i][j] == jugador for j in range(3)): return True # all pregunta si el jugador dio en una de las tres (f y c)...
-                if all(tablero[j][i] == jugador for j in range(3)): return True # si completo las tres  retorna true.
+# Creo la siguiente función para verificar quién fue el ganador...
+def verificar_ganador(tablero, jugador):
+    # Filas, columnas y diagonales
+    for i in range(3):
+        if all(tablero[i][j] == jugador for j in range(3)):  # Verifica filas
+            return True
+        if all(tablero[j][i] == jugador for j in range(3)):  # Verifica columnas
+            return True
 
-                if all(tablero[i][i] == jugador for i in range(3)): return True
-                if all(tablero[i][2 - i] == jugador for i in range(3)): return True
+    if all(tablero[i][i] == jugador for i in range(3)):  # Diagonal principal
+        return True
+    if all(tablero[i][2 - i] == jugador for i in range(3)):  # Diagonal secundaria
+        return True
 
-                return False # vuelve a verificar_ganador
+    return False  # Si no ganó, devuelve False
 
-        # creo  una función para verificar el empate...
-        def es_empate(tablero): 
-          return all(tablero[i][j] != " " for i in range(3) for j in range(3)) # si ninguno de los jugadores  completo las (f y c) se declara empate. 
+# Creo una función para verificar el empate...
+def es_empate(tablero): 
+    return all(tablero[i][j] != " " for i in range(3) for j in range(3))  # Si todas las casillas están llenas, es empate
 
-        # lógica básica del juego... 
-        tablero = [[" " for _ in range(3)] for _ in range(3)]
-        jugador_actual = "X" 
-
-        while True:  # Todo lo que sigue se va a imprimir porque siempre va a ser verdadero...
-         mostrar_tablero(tablero)  # llama a la función tablero.
-         fila, columna = pedir_movimiento(tablero, jugador_actual) # pide el movimiento al jugador actual.
-         tablero[fila][columna] = jugador_actual 
-
-         if verificar_ganador(tablero, jugador_actual): # verifica si el jugador gano... 
-          mostrar_tablero(tablero)
-          print(f"\n🎉 ¡El jugador {jugador_actual} ha ganado!")
-          break
-
-         if es_empate(tablero): # si hubo un empate
-          mostrar_tablero(tablero)
-          print("\n🤝 ¡Empate!")
-          break
-
-          # Cambiar de jugador
-          jugador_actual = "O" if jugador_actual == "X" else "X" # el usuario selecciona que jugador es (0 , X).
