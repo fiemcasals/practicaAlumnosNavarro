@@ -9,9 +9,10 @@ posicion_jugador2 = 0
 # . Repetir turnos hasta que uno de los dos llegue a la meta.
 # . Alternar turnos y sumar el dado a la posición.
 while True:
+    # El siguiente input hace que el jugador haga enter para tirar el dado...
     input("\nTurno Jugador 1 - presiona ENTER para tirar el dado\n")
-    dado1 = funciones.tirar_dado()
-    posicion_jugador1 += dado1
+    dado1 = funciones.tirar_dado() # Llamo a la función para guardar el valor del dado.
+    posicion_jugador1 += dado1 # Actualizo la posición del jugador.
     print(f"  Jugador 1 sacó un {dado1}\n")
 
     if posicion_jugador1 >= meta:
