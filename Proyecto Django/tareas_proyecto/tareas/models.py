@@ -15,6 +15,7 @@ class Tarea(models.Model):
     descripcion = models.TextField(default="Sin descripción")
     completada = models.BooleanField(default=False)
     clase = models.ForeignKey(Clase_tarea, on_delete=models.CASCADE, null=True, blank=True, related_name="tareas")
+    fecha_creacion = models.DateTimeField(auto_now_add=True)  # 👈 nuevo campo
 
     def __str__(self):
         return self.titulo        
