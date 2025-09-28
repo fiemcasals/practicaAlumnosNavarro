@@ -20,6 +20,10 @@ from django.urls import path, include   # 👈 importamos include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tareas.urls')),   # 👈 añadimos la conexión con las urls de la app tareas
+
+    # 👉 app tareas con namespace
+    path('', include(('tareas.urls', 'tareas'), namespace='tareas')),
+
+    # 👉 app tareasMauri con namespace
     path('mauri/', include(('tareasMauri.urls', 'tareasMauri'), namespace='tareasMauri')),
 ]

@@ -10,7 +10,7 @@
         </p>
     </div>
     <div class="col-md-4 text-md-end">
-        <a href="{% url 'lista_tareas' %}" class="btn btn-lg btn-primary me-2">➕ Tareas</a>
+        <a href="{% url 'tareas:lista_tareas' %}" class="btn btn-lg btn-primary me-2">➕ Tareas</a>
         <a href="{% url 'tareasMauri:notas' %}" class="btn btn-lg btn-outline-primary">📝 Notas</a>
     </div>
 </div>
@@ -21,7 +21,8 @@
             <div class="card-body">
                 <h5 class="card-title">Tareas</h5>
                 <p class="card-text">Total: <strong>{{ tareas_count }}</strong></p>
-                <a href="{% url 'lista_tareas' %}" class="btn btn-sm btn-primary">Ir a Tareas</a>
+                <a href="{% url 'tareas:lista_tareas' %}" class="btn btn-sm btn-primary">Ir a Tareas</a>
+
             </div>
         </div>
     </div>

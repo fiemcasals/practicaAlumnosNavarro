@@ -50,3 +50,14 @@
     color: #6c757d !important;          /* texto gris */
     border: 1px solid #6c757d !important;
 }
+
+/* --- Cuadro de descripción --- */
+.descripcion-cuadro {
+    border: 1px solid black;   /* borde negro */
+    background-color: white;   /* fondo blanco */
+    color: black;              /* texto negro */
+    padding: 6px 10px;         /* espacio interno */
+    border-radius: 4px;        /* esquinas suaves */
+    margin-top: 5px;           /* separa del título */
+    font-size: 0.9rem;         /* tamaño un poco más chico */
+}

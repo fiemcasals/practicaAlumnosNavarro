@@ -6,13 +6,12 @@
 
     <!-- Encabezado -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0">Gestión de Tareas</h1>
-    <div class="d-flex gap-2">
-        <a class="btn btn-primary" href="{% url 'crear_tarea' %}">➕ Crear Tarea</a>
-        <a class="btn btn-secondary" href="{% url 'dashboard' %}">🏠 Menú principal</a>
+        <h1 class="mb-0">Gestión de Tareas</h1>
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary" href="{% url 'tareas:crear_tarea' %}">➕ Crear Tarea</a>
+            <a class="btn btn-secondary" href="{% url 'tareas:dashboard' %}">🏠 Menú principal</a>
+        </div>
     </div>
-</div>
-
 
     <!-- Lista de tareas -->
     <div class="card shadow-sm">
@@ -25,9 +24,14 @@
                             <strong {% if tarea.completada %}class="text-decoration-line-through"{% endif %}>
                                 {{ tarea.titulo }}
                             </strong>
+
+                            <!-- Descripción en cuadro -->
                             {% if tarea.descripcion %}
-                                <div class="small text-muted">{{ tarea.descripcion }}</div>
+                                <div class="descripcion-cuadro">
+                                    {{ tarea.descripcion }}
+                                </div>
                             {% endif %}
+
                             <!-- 📅 Fecha de creación -->
                             <div class="small text-muted">
                                 Creado el: {{ tarea.fecha_creacion|date:"d/m/Y H:i" }}
@@ -36,7 +40,7 @@
 
                         <!-- Botones -->
                         <div class="d-flex gap-2">
-                            <form method="post" action="{% url 'toggle_tarea' tarea.id %}" style="display:inline;">
+                            <form method="post" action="{% url 'tareas:toggle_tarea' tarea.id %}" style="display:inline;">
                                 {% csrf_token %}
                                 {% if tarea.completada %}
                                     <button type="submit" class="btn btn-sm btn-outline-secondary">Marcar pendiente</button>
@@ -44,8 +48,8 @@
                                     <button type="submit" class="btn btn-sm btn-success">Marcar completada</button>
                                 {% endif %}
                             </form>
-                            <a href="{% url 'editar_tarea' tarea.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
-                            <form method="post" action="{% url 'eliminar_tarea' tarea.id %}" 
+                            <a href="{% url 'tareas:editar_tarea' tarea.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+                            <form method="post" action="{% url 'tareas:eliminar_tarea' tarea.id %}" 
                                   style="display:inline;" 
                                   onsubmit="return confirm('¿Eliminar esta tarea?');">
                                 {% csrf_token %}
