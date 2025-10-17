@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4">Editar tarea: {{ tarea.titulo }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.titulo.label_tag }}
+            {{ form.titulo }}
+            {% if form.titulo.errors %}<div class="text-danger">{{ form.titulo.errors }}</div>{% endif %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.descripcion.label_tag }}
+            {{ form.descripcion }}
+            {% if form.descripcion.errors %}<div class="text-danger">{{ form.descripcion.errors }}</div>{% endif %}
+        </div>
+
+        <div class="form-check mb-3">
+            {{ form.completada }}
+            {{ form.completada.label_tag }}
+        </div>
+
+        <button class="btn btn-success">Guardar cambios</button>
+        <a class="btn btn-secondary" href="{% url 'tareas:lista_tareas' %}">Cancelar</a>
+    </form>
+</body>
+</html>

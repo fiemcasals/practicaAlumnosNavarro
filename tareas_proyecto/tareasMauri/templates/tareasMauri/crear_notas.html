@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Crear Nota{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Crear Nota</h1>
+        <a class="btn btn-outline-secondary" href="{% url 'tareasMauri:notas' %}">⬅ Volver a Notas</a>
+    </div>
+
+    <!-- Formulario -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+                </div>
+                <div class="mb-3">
+                    {{ form.body.label_tag }}
+                    {{ form.body }}
+                </div>
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* --- Botones Tareas (btn-primary) --- */
+.btn.btn-primary {
+    background-color: #0d6efd !important;  /* Azul Bootstrap */
+    color: white !important;
+    border: 1px solid #0d6efd !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: white !important;
+    color: #0d6efd !important;
+    border: 1px solid #0d6efd !important;
+}
+
+/* --- Botones Notas (btn-outline-primary) --- */
+.btn.btn-outline-primary {
+    background-color: #0d6efd !important;  /* Azul por defecto */
+    color: white !important;
+    border: 1px solid #0d6efd !important;
+}
+
+.btn.btn-outline-primary:hover {
+    background-color: white !important;
+    color: #0d6efd !important;
+    border: 1px solid #0d6efd !important;
+}
+
+/* --- Botón Menú Principal (btn-outline-secondary) --- */
+.btn.btn-outline-secondary {
+    background-color: #6c757d !important; /* gris Bootstrap */
+    color: white !important;
+    border: 1px solid #6c757d !important;
+}
+
+.btn.btn-outline-secondary:hover {
+    background-color: white !important;
+    color: #6c757d !important;
+    border: 1px solid #6c757d !important;
+}
+
+/* --- Botón Menú Principal (btn-secondary) --- */
+.btn.btn-secondary {
+    background-color: #6c757d !important; /* gris Bootstrap */
+    color: white !important;
+    border: 1px solid #6c757d !important;
+    transition: all 0.3s ease-in-out; /* animación suave */
+}
+
+.btn.btn-secondary:hover {
+    background-color: white !important; /* fondo blanco */
+    color: #6c757d !important;          /* texto gris */
+    border: 1px solid #6c757d !important;
+}
+
+/* --- Cuadro de descripción --- */
+.descripcion-cuadro {
+    border: 1px solid black;   /* borde negro */
+    background-color: white;   /* fondo blanco */
+    color: black;              /* texto negro */
+    padding: 6px 10px;         /* espacio interno */
+    border-radius: 4px;        /* esquinas suaves */
+    margin-top: 5px;           /* separa del título */
+    font-size: 0.9rem;         /* tamaño un poco más chico */
+}
