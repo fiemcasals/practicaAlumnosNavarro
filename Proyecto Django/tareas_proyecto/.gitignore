@@ -1,0 +1,6 @@
+# Archivos sensibles
+*.env
+db.sqlite3
+__pycache__/
+*.pyc
+tareas_proyecto/settings_local.py

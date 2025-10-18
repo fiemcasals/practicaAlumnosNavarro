@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Organizador Personal{% endblock %}
+
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col-md-8">
+        <p class="lead text-muted">
+            Gestioná <span class="fw-semibold text-primary">tus tareas</span> y 
+            <span class="fw-semibold text-success">notas</span> desde un solo lugar.
+        </p>
+    </div>
+    <div class="col-md-4 text-md-end">
+        <a href="{% url 'tareas:lista_tareas' %}" class="btn btn-lg btn-primary me-2">➕ Tareas</a>
+        <a href="{% url 'tareasMauri:notas' %}" class="btn btn-lg btn-outline-primary">📝 Notas</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tareas</h5>
+                <p class="card-text">Total: <strong>{{ tareas_count }}</strong></p>
+                <a href="{% url 'tareas:lista_tareas' %}" class="btn btn-sm btn-primary">Ir a Tareas</a>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3 mt-md-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Notas</h5>
+                <p class="card-text">Total: <strong>{{ notas_count }}</strong></p>
+                <a href="{% url 'tareasMauri:notas' %}" class="btn btn-sm btn-outline-primary">Ir a Notas</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

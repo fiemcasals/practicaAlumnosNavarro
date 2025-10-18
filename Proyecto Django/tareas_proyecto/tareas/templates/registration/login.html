@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}  {# 👈 agregá esta línea justo después del extends #}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 400px;">
+    <h3 class="mb-3 text-center">Iniciar sesión</h3>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger text-center">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary w-100" type="submit">Entrar</button>
+    </form>
+</div>
+{% endblock %}

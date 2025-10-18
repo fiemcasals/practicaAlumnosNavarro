@@ -1,0 +1,74 @@
+{% extends "base.html" %} 
+{% block title %}Organizador de Tareas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Gestión de Tareas</h1>
+        <div class="d-flex gap-2">
+            <a class="btn btn-primary" href="{% url 'tareas:crear_tarea' %}">➕ Crear Tarea</a>
+            <a class="btn btn-secondary" href="{% url 'tareas:dashboard' %}">🏠 Menú principal</a>
+        </div>
+    </div>
+
+    <!-- 🔍 BUSCADOR DE TAREAS -->
+    <form method="GET" class="mb-3 d-flex" style="max-width: 350px;">
+        <input type="text" name="buscar" value="{{ busqueda }}" placeholder="Buscar tarea..." class="form-control me-2">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <!-- Lista de tareas -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <ul class="list-group">
+                {% for tarea in tareas %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <!-- Título tachado si está completada -->
+                            <strong {% if tarea.completada %}class="text-decoration-line-through"{% endif %}>
+                                {{ tarea.titulo }}
+                            </strong>
+
+                            <!-- Descripción en cuadro -->
+                            {% if tarea.descripcion %}
+                                <div class="descripcion-cuadro">
+                                    {{ tarea.descripcion }}
+                                </div>
+                            {% endif %}
+
+                            <!-- 📅 Fecha de creación -->
+                            <div class="small text-muted">
+                                Creado el: {{ tarea.fecha_creacion|date:"d/m/Y H:i" }}
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="d-flex gap-2">
+                            <form method="post" action="{% url 'tareas:toggle_tarea' tarea.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                {% if tarea.completada %}
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Marcar pendiente</button>
+                                {% else %}
+                                    <button type="submit" class="btn btn-sm btn-success">Marcar completada</button>
+                                {% endif %}
+                            </form>
+                            <a href="{% url 'tareas:editar_tarea' tarea.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+                            <form method="post" action="{% url 'tareas:eliminar_tarea' tarea.id %}" 
+                                  style="display:inline;" 
+                                  onsubmit="return confirm('¿Eliminar esta tarea?');">
+                                {% csrf_token %}
+                                <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-center">No hay tareas registradas.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
